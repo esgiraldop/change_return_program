@@ -1,17 +1,24 @@
-cost = 10.58 # dollars
-given = 11 # dollars
+'''The user enters a cost and then the amount of money given.
+The program figures out the change and the number of quarters, dimes, nickels, pennies needed for the change.'''
+import ask_usr
+
+# cost = 10.58 # dollars
+# given = 11 # dollars
+
+cost = ask_usr.ask_usr_num(option='the cost of the article: ')
+given = ask_usr.ask_usr_num(option='the money given: ')
+
 txt = 'You must return '
 coin_names = ['dollar', 'quarter', 'dime', 'nickel', 'penny']
 coin_values = [1, 0.25, 0.10, 0.05, 0.01]
 
 change = round(given - cost, 2)
-print('The change is: ', change)
-
 if change < 0:
     print('You have not enough money.')
 elif change == 0:
-    txt = 'No change left'
+    print('No change left')
 else:
+    print('The change is: ', change)
     for coin_name, coin_value in zip(coin_names, coin_values):
         if change / coin_value < 1:
             # For this case, you have not even 1 "coin_value" to return
@@ -36,4 +43,4 @@ else:
             change = round(change - coin_value * num_coins, 2)  # The remaining is the new change
             continue
 
-print(txt)
+    print(txt)
