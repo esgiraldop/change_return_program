@@ -50,4 +50,7 @@ else:
             change = round(change - coin_value * num_coins, 2)  # The remaining is the new change
             continue
 
+    if txt.endswith(', '):
+        txt = txt[:-2]
+
     print(txt)
