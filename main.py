@@ -24,7 +24,11 @@ else:
             # For this case, you have not even 1 "coin_value" to return
             continue
         elif change / coin_value == 1:
-            txt += str(f"and {coin_value} {coin_name} ")
+            num_coins = int(change / coin_value)
+            if txt == 'You must return ':
+                txt += str(f"{num_coins} {coin_name} ")
+            else:
+                txt += str(f"and {num_coins} {coin_name} ")
             break  # You found the smallest coin you can return according to the change
         elif change / coin_value > 1:
             num_coins = int(change / coin_value)
