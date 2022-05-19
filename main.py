@@ -33,7 +33,10 @@ else:
         elif change / coin_value > 1:
             num_coins = int(change / coin_value)
             if coin_name == 'penny':
-                txt += str(f"and {num_coins} {coin_name}")
+                if txt == 'You must return ':
+                    txt += str(f"{num_coins} {coin_name}")
+                else:
+                    txt += str(f"and {num_coins} {coin_name}")
             else:
                 txt += str(f"{num_coins} {coin_name}")
             if num_coins == 1:
